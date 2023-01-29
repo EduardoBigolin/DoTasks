@@ -1,0 +1,11 @@
+import { Router } from "express";
+
+const routes = Router();
+
+routes.get("/",(req,res)=>{
+  res.json({
+    message: "Welcome to DoTasks API"
+  })
+})
+
+export default routes;

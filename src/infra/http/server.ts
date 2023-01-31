@@ -1,4 +1,5 @@
 import express from "express";
+import client from "../redis/config";
 import routes from "./routes";
 
 export class Server {
@@ -6,11 +7,10 @@ export class Server {
   constructor(private port: number = port) {
     this.middleware();
     this.routes();
-
-    this.open();
   }
 
-  open() {
+  async open() {
+    await client.connect();
     this.app.listen(this.port, () => {
       console.log(
         `[HTTP] your server is listen in http://localhost:${this.port}`

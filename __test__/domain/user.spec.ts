@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 import { faker } from "@faker-js/faker";
 import { User } from "../../src/user/domain/user";
 
-describe("Domain", () => {
+describe("Domain user", () => {
   it("test if return a new instance of user if name, email and password is valid", () => {
     const randomName = faker.name.fullName();
     const randomEmail = faker.internet.email(randomName);

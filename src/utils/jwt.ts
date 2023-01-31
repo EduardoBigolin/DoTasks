@@ -7,6 +7,7 @@ export class Jwt {
       email,
       name,
     };
+
     return jwt.sign(payLoad, CONFIG.JWT_KEY);
   }
   static verify(token: string) {

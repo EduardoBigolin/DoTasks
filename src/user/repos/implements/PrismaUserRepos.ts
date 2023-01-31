@@ -13,13 +13,12 @@ export class PrismaUserRepos implements UserRepos {
     });
   }
   async save(input: UserInput): Promise<void> {
-    const user = await prisma.user.create({
+    await prisma.user.create({
       data: {
         name: input.name,
         email: input.email,
         password: input.password,
       },
     });
-    console.log(user);
   }
 }

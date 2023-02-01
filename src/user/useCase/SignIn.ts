@@ -19,7 +19,7 @@ export class SignIn {
     if (!comparePassword) {
       return HttpReturn.badRequest("Invalid credential");
     }
-    const token = Jwt.create(user.name, user.email);
+    const token = Jwt.create(user.name, user.email, user.id);
 
     return HttpReturn.ok(token);
   }

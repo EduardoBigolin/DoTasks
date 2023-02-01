@@ -1,9 +1,9 @@
 import { faker } from "@faker-js/faker";
 import { describe, it, expect } from "vitest";
-import { PrismaUserRepos } from "../../src/user/repos/implements/PrismaUserRepos";
-import { SignIn } from "../../src/user/useCase/SignIn";
-import { SignUp } from "../../src/user/useCase/SignUp";
-import { Jwt } from "../../src/utils/jwt";
+import { PrismaUserRepos } from "../../../src/user/repos/implements/PrismaUserRepos";
+import { SignIn } from "../../../src/user/useCase/SignIn";
+import { SignUp } from "../../../src/user/useCase/SignUp";
+import { Jwt } from "../../../src/utils/jwt";
 
 describe("sign in", () => {
   const repos = new PrismaUserRepos();

@@ -1,5 +1,5 @@
 export class HttpReturn {
-  static ok(msg: string) {
+  static ok<T>(msg: T) {
     return {
       statusCode: 200,
       message: msg,

@@ -2,8 +2,9 @@ import CONFIG from "../../config";
 import jwt from "jsonwebtoken";
 
 export class Jwt {
-  static create(name: string, email: string) {
+  static create(name: string, email: string, userID: number) {
     const payLoad = {
+      userID,
       email,
       name,
     };

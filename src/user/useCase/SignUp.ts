@@ -20,8 +20,8 @@ export class SignUp {
         userData.email,
         userData.password
       ).getValue();
-      await this.repos.save(user);
-      const token = Jwt.create(user.name, user.email);
+      const userSave = await this.repos.save(user);
+      const token = Jwt.create(userSave.name, userSave.email, userSave.id);
 
       return HttpReturn.ok(token);
     } catch (error: any) {

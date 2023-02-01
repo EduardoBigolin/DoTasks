@@ -1,5 +1,5 @@
 import { UserRepos } from "../userRepos";
-import { PrismaClient, User as UserPrisma } from "@prisma/client";
+import { PrismaClient, User, User as UserPrisma } from "@prisma/client";
 import { UserInput } from "../../dtos/user";
 
 const prisma = new PrismaClient();
@@ -12,8 +12,8 @@ export class PrismaUserRepos implements UserRepos {
       },
     });
   }
-  async save(input: UserInput): Promise<void> {
-    await prisma.user.create({
+  async save(input: UserInput): Promise<User> {
+    return await prisma.user.create({
       data: {
         name: input.name,
         email: input.email,

@@ -6,8 +6,7 @@ describe("Domain Tasks", () => {
   it("test if return a new instance of task if title and description is valid", () => {
     const randomTitle = faker.word.adverb();
     const description = faker.lorem.words(30);
-
-    const task = new Task(randomTitle, description).getValue();
+    const task = new Task(randomTitle, description, 1).getValue();
 
     expect(task.title).toBe(randomTitle);
   });
@@ -15,8 +14,7 @@ describe("Domain Tasks", () => {
   it("test if return a error if title is invalid", () => {
     const randomTitle = "1";
     const description = faker.lorem.words(30);
-
-    expect(() => new Task(randomTitle, description).getValue()).toThrow(
+    expect(() => new Task(randomTitle, description, 1).getValue()).toThrow(
       "Invalid title"
     );
   });
@@ -25,7 +23,7 @@ describe("Domain Tasks", () => {
     const randomTitle = faker.word.adverb();
     const description = "1";
 
-    expect(() => new Task(randomTitle, description).getValue()).toThrow(
+    expect(() => new Task(randomTitle, description, 1).getValue()).toThrow(
       "Invalid description"
     );
   });
@@ -33,7 +31,7 @@ describe("Domain Tasks", () => {
     const randomTitle = null as any;
     const description = faker.lorem.words(30);
 
-    expect(() => new Task(randomTitle, description).getValue()).toThrow(
+    expect(() => new Task(randomTitle, description, 1).getValue()).toThrow(
       "title is required"
     );
   });
@@ -41,7 +39,7 @@ describe("Domain Tasks", () => {
     const randomTitle = faker.word.adverb();
     const description = null as any;
 
-    expect(() => new Task(randomTitle, description).getValue()).toThrow(
+    expect(() => new Task(randomTitle, description, 1).getValue()).toThrow(
       "description is required"
     );
   });

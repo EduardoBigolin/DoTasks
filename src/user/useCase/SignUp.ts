@@ -23,7 +23,7 @@ export class SignUp {
       const userSave = await this.repos.save(user);
       const token = Jwt.create(userSave.name, userSave.email, userSave.id);
 
-      return HttpReturn.ok(token);
+      return HttpReturn.ok<string>(token);
     } catch (error: any) {
       return HttpReturn.badRequest(error.message);
     }

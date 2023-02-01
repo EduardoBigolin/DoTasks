@@ -15,7 +15,7 @@ export class CreateTask {
         input.userId
       ).getValue();
       await this.repos.create(taskData);
-      return HttpReturn.ok<string>("Created with success");
+      return HttpReturn.ok<string>("Task CREATED with success");
     } catch (error: any) {
       return HttpReturn.badRequest(error.message);
     }

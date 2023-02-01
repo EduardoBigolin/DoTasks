@@ -1,7 +1,7 @@
 import CONFIG from "../../config";
 import jwt from "jsonwebtoken";
 
-interface PayLoad {
+export interface PayLoad {
   name: string;
   email: string;
   userID: number;

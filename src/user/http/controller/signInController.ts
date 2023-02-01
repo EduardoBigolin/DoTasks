@@ -8,6 +8,6 @@ export class SignInController {
     const repos = new PrismaUserRepos();
     const useCase = await new SignIn(repos).execute({ email, password });
 
-    res.status(useCase.statusCode).json({ message: useCase.message });
+    res.status(useCase.statusCode).json(useCase.message);
   }
 }

@@ -15,8 +15,6 @@ export class CreateTaskController {
       description: description,
       userId: user.userID,
     });
-    res.status(result.statusCode).json({
-      message: result.message,
-    });
+    res.status(result.statusCode).json(result.message);
   }
 }

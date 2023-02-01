@@ -8,6 +8,16 @@ export interface DataTask {
 export interface TasksRepos {
   create(input: DataTask): Promise<void>;
   findAllTaskByUser(userId: number): Promise<Task[]>;
-  findTask(id: number): Promise<Task>;
-  deleteTask(id: number): Promise<void>;
+  findTaskById(taskId: number): Promise<Task | null>;
+  completeTask(taskId: number): Promise<void>;
+  deleteTask(taskId: number): Promise<void>;
+  alterTask(taskId: number, data: DataTask): Promise<void>;
+  findTaskByUser(taskId: number): Promise<
+    | (Task & {
+        User: {
+          id: number;
+        };
+      })
+    | null
+  >;
 }

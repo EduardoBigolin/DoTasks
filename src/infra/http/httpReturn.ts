@@ -2,13 +2,13 @@ export class HttpReturn {
   static ok<T>(msg: T) {
     return {
       statusCode: 200,
-      message: msg,
+      message: { message: msg },
     };
   }
   static badRequest(msg: string) {
     return {
       statusCode: 400,
-      message: msg,
+      message: { error: msg },
     };
   }
   static InternalServerError(msg: string) {

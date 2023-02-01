@@ -8,6 +8,6 @@ export class SignUpController {
     const repos = new PrismaUserRepos();
     const useCase = await new SignUp(repos).execute({ name, email, password });
 
-    res.status(useCase.statusCode).json({ message: useCase.message });
+    res.status(useCase.statusCode).json(useCase.message);
   }
 }
